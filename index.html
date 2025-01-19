@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #F2F2F2; /* Background color */
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px;
+            background-color: #E8E8E8; /* Header background color */
+            color: #333;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        .video-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .video-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 300px;
+        }
+
+        .video-card h3 {
+            padding: 15px;
+            background-color: #2D92E0; /* Theme color */
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .video-card p {
+            padding: 15px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .close-btn {
+            background-color: #2D92E0; /* Theme color */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .close-btn:hover {
+            background-color: #216BB3; /* Darker shade of theme color */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p>Learn with the latest video tutorial!</p>
+    </header>
+
+    <div class="container">
+        <div class="video-card" onclick="openModal('https://res.cloudinary.com/doqvn4sll/video/upload/v1736985730/MYDGP_Photographer_Book_Karne_Ka_Aasaan_Tarika_2025_tqizas.mp4')">
+            <iframe src="https://res.cloudinary.com/doqvn4sll/video/upload/v1736985730/MYDGP_Photographer_Book_Karne_Ka_Aasaan_Tarika_2025_tqizas.mp4" frameborder="0" allowfullscreen oncontextmenu="return false;"></iframe>
+            <h3>How to Book a Photographer Easily</h3>
+            <p>Watch this tutorial to learn the easiest way to book a photographer on the MYDGP platform.</p>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <iframe id="modalIframe" src="" frameborder="0" allowfullscreen></iframe>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the modal and load the video
+        function openModal(videoUrl) {
+            document.getElementById('modalIframe').src = videoUrl;
+            document.getElementById('videoModal').style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('modalIframe').src = ''; // Stop the video when closed
+        }
+    </script>
+
+</body>
+</html>
